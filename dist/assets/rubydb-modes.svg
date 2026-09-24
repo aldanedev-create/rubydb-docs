@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 420" role="img" aria-labelledby="title desc">
+<title id="title">RubyDB embedded and server modes</title><desc id="desc">Embedded mode has one Ruby process owning a database path. Server mode has multiple clients connecting to a RubyDB server that owns the database path.</desc>
+<rect width="900" height="420" rx="20" fill="#f7f9fb"/>
+<text x="48" y="57" font-family="Arial,sans-serif" font-size="24" font-weight="700" fill="#1b2b3a">Choose an ownership model</text>
+<rect x="38" y="84" width="398" height="290" rx="15" fill="white" stroke="#dce5eb" stroke-width="2"/>
+<rect x="464" y="84" width="398" height="290" rx="15" fill="white" stroke="#dce5eb" stroke-width="2"/>
+<text x="68" y="126" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#a43d43">EMBEDDED</text>
+<text x="494" y="126" font-family="Arial,sans-serif" font-size="19" font-weight="700" fill="#a43d43">SERVER / CLIENT</text>
+<rect x="83" y="167" width="135" height="76" rx="10" fill="#e8f0f6" stroke="#b9ccd9"/>
+<text x="150" y="199" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#26445c">Ruby app</text><text x="150" y="220" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#52697a">one process</text>
+<path d="M220 205h76" stroke="#b04a4e" stroke-width="4"/><path d="m286 196 13 9-13 9" fill="none" stroke="#b04a4e" stroke-width="4"/>
+<rect x="305" y="167" width="94" height="76" rx="9" fill="#fae9e7" stroke="#e9b1ad"/><text x="352" y="199" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#953a3f">.rdb</text><text x="352" y="219" text-anchor="middle" font-family="Arial,sans-serif" font-size="12" fill="#8c6264">file</text>
+<text x="68" y="324" font-family="Arial,sans-serif" font-size="14" fill="#647689">One owner of one local path</text>
+<rect x="490" y="165" width="107" height="38" rx="8" fill="#e8f0f6" stroke="#b9ccd9"/><text x="543" y="190" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#26445c">Web app</text>
+<rect x="490" y="219" width="107" height="38" rx="8" fill="#e8f0f6" stroke="#b9ccd9"/><text x="543" y="244" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#26445c">Worker</text>
+<path d="M598 184h41M598 238h41M639 184v54M639 211h24" fill="none" stroke="#b04a4e" stroke-width="3"/>
+<rect x="665" y="165" width="98" height="91" rx="9" fill="#e6edf6" stroke="#a9bfd3"/><text x="714" y="199" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#26445c">RubyDB</text><text x="714" y="219" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="#52697a">server</text>
+<path d="M764 211h25" stroke="#b04a4e" stroke-width="3"/><path d="m783 203 10 8-10 8" fill="none" stroke="#b04a4e" stroke-width="3"/>
+<rect x="795" y="181" width="48" height="60" rx="7" fill="#fae9e7" stroke="#e9b1ad"/><text x="819" y="216" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="700" fill="#953a3f">file</text>
+<text x="494" y="324" font-family="Arial,sans-serif" font-size="14" fill="#647689">Multiple clients · one server owns storage</text>
+</svg>

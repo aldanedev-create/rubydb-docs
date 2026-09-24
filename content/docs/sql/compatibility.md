@@ -1,0 +1,60 @@
+# RubyDB SQL compatibility
+
+RubyDB supports a deliberately documented SQL dialect. It includes a tested
+SQLite-style compatibility profile for common new Ruby/Rails applications (see
+`sqlite-compatibility.md`), but this is not a claim of complete SQLite,
+PostgreSQL, or MySQL compatibility.
+
+Supported and tested statements include:
+
+- `SELECT` with projections, `WHERE`, ordering, limits, offsets, built-in
+  expressions, and `COUNT`, `SUM`, `AVG`, `MIN`, and `MAX` aggregates (including
+  `DISTINCT` aggregate arguments) with
+  `GROUP BY` and `HAVING`
+- window ranking functions `ROW_NUMBER`, `RANK`, and `DENSE_RANK`, plus
+  partition-wide and explicit `ROWS`-framed aggregate windows using
+  `OVER (PARTITION BY ... ORDER BY ...)`
+- `UNION`, `UNION ALL`, `INTERSECT`, and `EXCEPT` for compatible SELECT
+  projections
+- non-correlated scalar subqueries, `IN (SELECT ...)`, and `EXISTS (SELECT ...)`
+  predicates
+- materialized non-recursive and bounded recursive `WITH` common table
+  expressions
+- `INSERT`, `UPDATE`, and `DELETE`, including multi-row `VALUES`,
+  `ON CONFLICT DO NOTHING`, and targeted `ON CONFLICT (...) DO UPDATE SET ...`
+  with `excluded.column`
+- `CREATE TABLE` and `DROP TABLE`, including primary keys, unique constraints,
+  checks, foreign keys, and referential actions
+- `CREATE INDEX`/`CREATE UNIQUE INDEX` and `DROP INDEX`
+- `ALTER TABLE` add/drop columns and constraints
+- `CREATE`/`DROP DATABASE`, `CREATE`/`DROP SCHEMA`, and `CREATE`/`DROP VIEW`
+- supported trigger metadata DDL: `CREATE TRIGGER ... EXECUTE FUNCTION ...`
+- `BEGIN`, `COMMIT`, `ROLLBACK`, `SAVEPOINT`, `ROLLBACK TO SAVEPOINT`, and
+  `RELEASE SAVEPOINT`
+- `EXPLAIN`, `EXPLAIN ANALYZE`, and `VACUUM`
+
+Unsupported syntax must fail with a parser or execution error. RubyDB does not
+promise arbitrary SQL extensions, PostgreSQL wire-level compatibility, or
+feature parity with another database engine. The executable contract is the
+integration coverage under `spec/`.
+
+## Copy-and-paste compatibility check
+
+Before adopting a query shape, run it in a disposable database and retain the
+result as an application test:
+
+```sh
+rubydb shell --database tmp/compatibility-check.rdb
+```
+
+```sql
+CREATE TABLE events (id INTEGER PRIMARY KEY, account_id INTEGER, kind TEXT);
+INSERT INTO events (id, account_id, kind) VALUES (1, 10, 'login'), (2, 10, 'purchase');
+SELECT account_id, COUNT(*) AS event_count
+FROM events
+GROUP BY account_id
+HAVING COUNT(*) > 1;
+```
+
+For a feature outside this page, treat a parser/execution error as unsupported
+until a documented, tested implementation exists.

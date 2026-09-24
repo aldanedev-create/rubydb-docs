@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111b27">
+  <meta name="description" content="RubyDB documentation: get started, explore SQL, Rails integration, server deployment, and operations.">
+  <title>RubyDB Documentation</title>
+  <link rel="icon" type="image/svg+xml" href="assets/rubydb-favicon.svg">
+  <link rel="icon" type="image/png" href="assets/rubydb-logo.png">
+  <link rel="apple-touch-icon" href="assets/rubydb-logo.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><img class="brand-logo" src="assets/rubydb-logo.png" width="38" height="38" alt=""><span>RubyDB</span><span class="brand-divider"></span><span class="docs-label">Documentation</span></div>
+    <button id="mobile-menu" class="icon-button mobile-menu" aria-label="Open navigation" aria-expanded="false">☰</button>
+    <div class="top-actions"><a class="top-page-link" href="#/project/about">About</a><a class="top-page-link" href="#/project/contribute">Contribute</a><button id="search-trigger" class="search-trigger"><span aria-hidden="true">⌕</span> Search docs <kbd>⌘ K</kbd></button><a class="github-link" href="https://github.com/aldanedev-create/rubydb" target="_blank" rel="noopener noreferrer" aria-label="RubyDB on GitHub"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 .8a11.2 11.2 0 0 0-3.54 21.83c.56.11.76-.24.76-.54v-1.9c-3.08.67-3.73-1.31-3.73-1.31-.5-1.27-1.23-1.61-1.23-1.61-1.01-.69.08-.67.08-.67 1.12.08 1.71 1.15 1.71 1.15 1 .1.54 1.91 2.87 2.35.27-.72.71-1.21 1.29-1.49-2.46-.28-5.05-1.23-5.05-5.49 0-1.21.43-2.2 1.15-2.98-.11-.28-.5-1.41.11-2.94 0 0 .94-.3 3.08 1.14a10.7 10.7 0 0 1 5.61 0c2.14-1.45 3.08-1.14 3.08-1.14.61 1.53.23 2.66.11 2.94.72.78 1.15 1.77 1.15 2.98 0 4.27-2.59 5.2-5.06 5.48.73.64 1.39 1.37 1.39 2.76v4.09c0 .3.2.65.77.54A11.2 11.2 0 0 0 12 .8Z"/></svg><span>GitHub</span></a></div>
+  </header>
+  <div class="shell">
+    <aside id="sidebar" class="sidebar" aria-label="Documentation navigation">
+      <div class="nav-kicker">THE GUIDE</div>
+      <nav id="nav"></nav>
+      <div class="sidebar-footer">RubyDB is in alpha. Validate your workload before production use.<a href="#/production-readiness">Read production guidance →</a></div>
+    </aside>
+    <main id="main" tabindex="-1">
+      <div class="article-wrap">
+        <div id="breadcrumb" class="breadcrumb"></div>
+        <article id="article" class="prose"><p>Loading documentation…</p></article>
+        <div id="pager" class="pager"></div>
+      </div>
+    </main>
+    <aside class="toc" aria-label="On this page"><div class="toc-title">ON THIS PAGE</div><nav id="toc"></nav><a class="edit-link" id="edit-link" href="https://github.com/aldanedev-create/rubydb" target="_blank" rel="noopener noreferrer">Edit this page on GitHub ↗</a></aside>
+  </div>
+  <div id="search-dialog" class="search-overlay" hidden>
+    <div class="search-panel" role="dialog" aria-modal="true" aria-label="Search documentation">
+      <label class="search-input-wrap"><span aria-hidden="true">⌕</span><input id="search-input" type="search" placeholder="Search RubyDB documentation…" autocomplete="off" aria-label="Search documentation"><kbd>ESC</kbd></label>
+      <div id="search-results" class="search-results"></div>
+      <div class="search-help">Search page titles and content · ↑ ↓ to move · Enter to open</div>
+    </div>
+  </div>
+</body>
+</html>
