@@ -20,6 +20,7 @@ jobs:
         run: |
           if test -f rubydb-docs-source.zip; then
             unzip -oq rubydb-docs-source.zip
+            rm -f .github/workflows/pages.yml
             rm rubydb-docs-source.zip
             git config user.name github-actions[bot]
             git config user.email 41898282+github-actions[bot]@users.noreply.github.com
