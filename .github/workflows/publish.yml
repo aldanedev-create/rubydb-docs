@@ -1,0 +1,35 @@
+name: Publish RubyDB docs
+on:
+  push:
+    branches: [main]
+    paths: ['rubydb-docs-source.zip', '.github/workflows/publish.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Unpack documentation sources
+        run: |
+          if test -f rubydb-docs-source.zip; then
+            unzip -oq rubydb-docs-source.zip
+            rm rubydb-docs-source.zip
+            git config user.name github-actions[bot]
+            git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+            git add -A
+            git commit -m 'Expand RubyDB documentation sources' || true
+            git push
+          fi
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+      - id: deployment
+        uses: actions/deploy-pages@v4
